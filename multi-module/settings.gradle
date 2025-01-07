@@ -1,0 +1,9 @@
+rootProject.name = 'multi-module'
+include 'module_common'
+include 'module_server'
+include 'module_server:module_server_common'
+include 'module_server:module_server_rest'
+
+findProject(':module_server:module_server_common')?.name = 'module_server_common'
+findProject(':module_server:module_server_rest')?.name = 'module_server_rest'
+
