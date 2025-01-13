@@ -1,4 +1,4 @@
-rootProject.name = 'multi-module'
+rootProject.name = 'spring-project'
 include 'module_common'
 include 'module_server'
 include 'module_server:module_server_common'
