@@ -1,9 +1,29 @@
-rootProject.name = 'spring-project'
-include 'module_common'
-include 'module_server'
-include 'module_server:module_server_common'
-include 'module_server:module_server_rest'
+pluginManagement {
+    resolutionStrategy {
+        eachPlugin {
+            switch (requested.id.id) {
+                case "org.springframework.boot": useVersion("${SPRING_BOOT_VERSION}")
+                    break
+                case "io.spring.dependency-management": useVersion("${SPRING_BOOT_DEPENDENCY_MANAGEMENT_VERSION}")
+                    break
+            }
+        }
+    }
+}
 
-findProject(':module_server:module_server_common')?.name = 'module_server_common'
-findProject(':module_server:module_server_rest')?.name = 'module_server_rest'
+rootProject.name = 'spring-project'
+
+include 'common'
+include 'core'
+include 'support'
+include 'api'
+include 'api:solution-a-admin'
+include 'api:solution-a-user'
+include 'api:solution-b-admin'
+include 'api:solution-b-user'
+
+findProject(':api:solution-a-admin')?.name = 'solution-a-admin'
+findProject(':api:solution-a-user')?.name = 'solution-a-user'
+findProject(':api:solution-b-admin')?.name = 'solution-b-admin'
+findProject(':api:solution-b-user')?.name = 'solution-b-user'
 

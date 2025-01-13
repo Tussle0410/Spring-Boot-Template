@@ -1,8 +1,0 @@
-dependencies {
-    implementation project(':module_common')
-    implementation project(':module_server:module_server_common')
-
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-}
