@@ -1,19 +1,7 @@
-plugins {
-    id 'java'
-}
+bootJar.enabled = false
 
-group = 'com.maestro'
-version = '0.0.1-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-}
-
-test {
-    useJUnitPlatform()
+subprojects {
+    dependencies {
+        compileOnly('org.springframework.boot:spring-boot-starter-web')
+    }
 }
