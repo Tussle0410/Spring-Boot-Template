@@ -21,9 +21,13 @@ include 'api:solution-a-admin'
 include 'api:solution-a-user'
 include 'api:solution-b-admin'
 include 'api:solution-b-user'
+include 'support:logging'
+include 'support:logging:logback'
 
 findProject(':api:solution-a-admin')?.name = 'solution-a-admin'
 findProject(':api:solution-a-user')?.name = 'solution-a-user'
 findProject(':api:solution-b-admin')?.name = 'solution-b-admin'
 findProject(':api:solution-b-user')?.name = 'solution-b-user'
+findProject(':support:logging')?.name = 'logging'
+findProject(':support:logging:logback')?.name = 'logback'
 
