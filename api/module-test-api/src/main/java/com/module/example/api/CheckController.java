@@ -1,4 +1,4 @@
-package com.solution.a.api;
+package com.module.example.api;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -27,5 +27,4 @@ public class CheckController {
         String successMessage = "OK";
         return new ResponseEntity<>(successMessage, HttpStatus.OK);
     }
-
 }
