@@ -1,11 +1,12 @@
-package com.module.example.api;
+package api;
 
 import static com.epages.restdocs.apispec.MockMvcRestDocumentationWrapper.document;
 import static com.epages.restdocs.apispec.ResourceDocumentation.resource;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.ch.restdocs.swagger.api.CheckController;
 import com.epages.restdocs.apispec.ResourceSnippetParameters;
-import com.module.example.config.RestDocsSupport;
+import config.RestDocsSupport;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;

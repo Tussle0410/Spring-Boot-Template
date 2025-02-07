@@ -1,4 +1,4 @@
-package com.module.example.config;
+package config;
 
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 

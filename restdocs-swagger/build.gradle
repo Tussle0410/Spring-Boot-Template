@@ -1,0 +1,56 @@
+plugins {
+    id 'com.epages.restdocs-api-spec' version '0.19.4'
+    id 'org.hidetake.swagger.generator' version '2.18.2'
+}
+ext {
+    restdocsApiSpecMockMvcVersion = '0.19.4'
+    swaggerUiVersion = '4.11.1'
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+    testImplementation "com.epages:restdocs-api-spec-mockmvc:${restdocsApiSpecMockMvcVersion}"
+
+    swaggerUI "org.webjars:swagger-ui:${swaggerUiVersion}"
+}
+
+openapi3 {
+    servers = [
+            { url = "http://localhost:8080" }
+    ]
+    title = "API 문서입니다용"
+    description = "RestDocsWithSwagger Docs"
+    version = "0.0.1"
+    format = "yaml"
+}
+
+swaggerSources {
+    sample {
+        setInputFile(file("${project.buildDir}/api-spec/openapi3.yaml"))
+    }
+}
+
+tasks.withType(GenerateSwaggerUI) {
+    dependsOn 'openapi3'
+    doFirst {
+        def swaggerUIFile = file("${openapi3.outputDirectory}/openapi3.yaml")
+
+        def securitySchemesContent =  "  securitySchemes:\n" +  \
+                                      "    APIKey:\n" +  \
+                                      "      type: apiKey\n" +  \
+                                      "      name: Authorization\n" +  \
+                                      "      in: header\n" + \
+                                      "security:\n" +
+                "  - APIKey: []  # Apply the security scheme here"
+
+        swaggerUIFile.append securitySchemesContent
+    }
+}
+
+bootJar {
+    dependsOn generateSwaggerUISample
+    from("${generateSwaggerUISample.outputDir}") {
+        into 'static/docs'
+    }
+}

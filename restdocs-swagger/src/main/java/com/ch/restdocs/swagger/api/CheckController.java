@@ -1,4 +1,4 @@
-package com.module.example.api;
+package com.ch.restdocs.swagger.api;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -11,15 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class CheckController {
     @GetMapping("/health-check")
     public ResponseEntity<String> healthCheck(){
-        return successResponse();
-    }
-    @GetMapping("/logging-check")
-    public ResponseEntity<String> loggingCheck(){
-        log.trace("Trace log");
-        log.debug("Debug log");
-        log.info("Info log");
-        log.warn("Warn log");
-        log.error("Error log");
         return successResponse();
     }
 
