@@ -6,6 +6,10 @@ pluginManagement {
                     break
                 case "io.spring.dependency-management": useVersion("${SPRING_BOOT_DEPENDENCY_MANAGEMENT_VERSION}")
                     break
+                case "com.epages.restdocs-api-spec": useVersion("${RESTDOCS_API_SPEC_VERSION}")
+                    break
+                case "org.hidetake.swagger.generator": useVersion("${SWAGGER_GENERATOR_VERSION}")
+                    break
             }
         }
     }
@@ -20,8 +24,10 @@ include 'api'
 include 'api:module-test-api'
 include 'support:logging'
 include 'support:logging:logback'
+include 'common:api-docs'
 
 findProject(':support:logging')?.name = 'logging'
 findProject(':support:logging:logback')?.name = 'logback'
 findProject(':api:module-test-api')?.name = 'module-test-api'
+findProject(':common:api-docs')?.name = 'api-docs'
 
