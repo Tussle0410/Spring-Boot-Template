@@ -1,4 +1,4 @@
-package config;
+package com.ch.restdocs.swagger.config;
 
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 
@@ -9,6 +9,8 @@ import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.RestDocumentationExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.filter.CharacterEncodingFilter;
+
 
 @ExtendWith(RestDocumentationExtension.class)
 public abstract class RestDocsSupport {
@@ -20,6 +22,7 @@ public abstract class RestDocsSupport {
   void setUp(RestDocumentationContextProvider provider) {
     this.mockMvc = MockMvcBuilders.standaloneSetup(initController())
         .apply(documentationConfiguration(provider))
+        .addFilters(new CharacterEncodingFilter("UTF-8", true))
         .build();
   }
 

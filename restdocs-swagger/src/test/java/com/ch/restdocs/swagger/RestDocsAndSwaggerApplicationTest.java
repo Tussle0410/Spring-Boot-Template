@@ -1,10 +1,12 @@
+package com.ch.restdocs.swagger;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ModuleTestApplicationTest {
+class RestDocsAndSwaggerApplicationTest {
 
   @Test
-  void contextLoad() {
+  void contextLoads() {
   }
 }
