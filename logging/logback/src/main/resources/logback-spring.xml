@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
 
-  <property name="CONSOLE_PATTERN" value="ABB%d{yyyy-MM-dd HH:mm:ss.SSS} %magenta([%thread]) %highlight([%-3level]) %logger{5} - %msg %n" />
+  <property name="CONSOLE_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight([%-3level]) %magenta([%thread]) %logger - %msg %n" />
   <property name="ROLLING_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS}  %logger{5} - %msg %n" />
   <property name="FILE_NAME" value="{path}" />
   <property name="LOG_NAME_PATTERN" value="./logs/application-%d{yyyy-MM-dd-HH-mm}.%i.log" />
