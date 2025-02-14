@@ -3,14 +3,14 @@ package com.ch.restdocs.swagger.user;
 import static com.epages.restdocs.apispec.MockMvcRestDocumentationWrapper.document;
 import static com.epages.restdocs.apispec.ResourceDocumentation.parameterWithName;
 import static com.epages.restdocs.apispec.ResourceDocumentation.resource;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.epages.restdocs.apispec.ResourceSnippetParameters;
 import com.ch.restdocs.swagger.config.RestDocsSupport;
+import com.epages.restdocs.apispec.ResourceSnippetParameters;
 import com.epages.restdocs.apispec.Schema;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,15 +19,19 @@ import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
 
 
 class UserControllerTest extends RestDocsSupport {
+
   private final UserService userService = mock(UserService.class);
 
   @Override
   protected Object initController() {
     return new UserController(userService);
   }
+
   @Test
   @DisplayName("서비스 상태 체크 API")
   void healthCheck() throws Exception {
+
+    //when & then
     mockMvc.perform(RestDocumentationRequestBuilders.get("/health-check")
             .accept(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
@@ -40,6 +44,7 @@ class UserControllerTest extends RestDocsSupport {
             )
         ));
   }
+
   @Test
   @DisplayName("특정 사용자 조회 API")
   void readUserId() throws Exception {
@@ -54,18 +59,12 @@ class UserControllerTest extends RestDocsSupport {
 
     //when & then
     mockMvc.perform(RestDocumentationRequestBuilders.get("/user/{userId}", requestUserId)
-        .accept(MediaType.APPLICATION_JSON))
-        .andExpect(result -> {
-          User responseUser = objectMapper.readValue(result.getResponse().getContentAsString(), User.class);
-          assertThat(responseUser).isNotNull();
-          assertThat(responseUser.id()).isEqualTo(requestUserId);
-          assertThat(responseUser.name()).isNotNull();
-          assertThat(responseUser.email()).isNotNull();
-          assertThat(responseUser.age())
-              .isNotNull()
-              .isGreaterThan(0);
-        })
+            .accept(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
+        .andExpect(jsonPath("$.id").value(requestUserId))
+        .andExpect(jsonPath("$.name").value(name))
+        .andExpect(jsonPath("$.email").value(email))
+        .andExpect(jsonPath("$.age").value(age))
         .andDo(document("readUserId"
             , resource(
                 ResourceSnippetParameters.builder()
