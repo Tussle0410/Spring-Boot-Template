@@ -1,0 +1,14 @@
+bootJar.enabled = false
+
+subprojects {
+    jar {
+        manifest {
+            attributes 'Plugin-Class': "${pluginClass}",
+                    'Plugin-Id': "${pluginId}",
+                    'Plugin-Version': "${archiveVersion}",
+                    'Plugin-Provider': "${pluginProvider}",
+                    'Plugin-Description': "${pluginDependencies}"
+        }
+    }
+
+}

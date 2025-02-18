@@ -1,0 +1,5 @@
+bootJar.enabled = false
+dependencies {
+    implementation files('libs/pf4j-api-0.0.1.jar')
+    annotationProcessor(group: 'org.pf4j', name: 'pf4j', version: "3.10.0")
+}
