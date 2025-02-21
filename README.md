@@ -4,18 +4,17 @@
 # Multi Module Structure
 ```
 Spring-Boot-Tempalte
-├──go-project
-├── spring-project
-│   ├── common
-│   ├── core
-│   ├── api
-│   │   ├── solution-a-admin
-│   │   ├── solution-a-user
-│   │   ├── solution-b-admin
-│   │   └── solution-b-user
-│   └── support
+├── logging
+│   └── logback
+├── pf4j
+│   ├── pf4j-api
+│   ├── pf4j-app
+│   └── pfj4-plugin
+│       ├── pf4j-plugin-01
+│       ├── pf4j-plugin-02
+│       └── pf4j-plugin-03
+├── restdocs-swagger
 └── README.md
-   
 ```
 ---
 
