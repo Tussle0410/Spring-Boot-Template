@@ -16,6 +16,7 @@ rootProject.name = 'Spring-Boot-Template'
 include 'restdocs-swagger'
 include 'logging'
 include 'logging:logback'
+include 'test-code'
 include 'pf4j'
 include 'pf4j:pf4j-api'
 include 'pf4j:pf4j-plugin'
@@ -31,4 +32,5 @@ findProject(':pf4j:pf4j-plugin')?.name = 'pf4j-plugin'
 findProject(':pf4j:pf4j-plugin:pf4j-plugin-01')?.name = 'pf4j-plugin-01'
 findProject(':pf4j:pf4j-plugin:pf4j-plugin-02')?.name = 'pf4j-plugin-02'
 findProject(':pf4j:pf4j-plugin:pf4j-plugin-03')?.name = 'pf4j-plugin-03'
+
 
