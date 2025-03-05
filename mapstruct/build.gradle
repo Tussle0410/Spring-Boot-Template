@@ -1,0 +1,9 @@
+ext {
+    mapstructVersion = '1.6.3'
+}
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+
+    implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+}

@@ -16,7 +16,7 @@ public class PluginManagerConfig {
   public PluginManager pluginManager() {
 
     // plugin .jar file folder path
-    String pathString = "path/plugins";
+    String pathString = "/Users/chanhyeonglee/Downloads/Repo/아키텍처 설계/Spring-Boot-Template/pf4j/pf4j-app/plugins";
     Path plugins = new File(pathString).toPath();
     return new JarPluginManager(plugins);
   }
