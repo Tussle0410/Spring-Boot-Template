@@ -38,3 +38,4 @@ include 'pf4j:pf4j-plugin:pf4j-plugin-03'
 //[SECRET]
 include 'secret'
 include 'secret:secret-core'
+include 'secret:sha3-256-secret'
