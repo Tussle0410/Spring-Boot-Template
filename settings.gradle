@@ -13,11 +13,20 @@ pluginManagement {
 
 rootProject.name = 'Spring-Boot-Template'
 
+//[RESTDOKS]
 include 'restdocs-swagger'
+
+//[LOGGING]
 include 'logging'
 include 'logging:logback'
+
+//[TEST]
 include 'test-code'
+
+//[MAPSTRUCT]
 include 'mapstruct'
+
+//[PF4J]
 include 'pf4j'
 include 'pf4j:pf4j-api'
 include 'pf4j:pf4j-plugin'
@@ -26,11 +35,6 @@ include 'pf4j:pf4j-plugin:pf4j-plugin-01'
 include 'pf4j:pf4j-plugin:pf4j-plugin-02'
 include 'pf4j:pf4j-plugin:pf4j-plugin-03'
 
-findProject(':logging:logback')?.name = 'logback'
-findProject(':pf4j:pf4j-api')?.name = 'pf4j-api'
-findProject(':pf4j:pf4j-app')?.name = 'pf4j-app'
-findProject(':pf4j:pf4j-plugin')?.name = 'pf4j-plugin'
-findProject(':pf4j:pf4j-plugin:pf4j-plugin-01')?.name = 'pf4j-plugin-01'
-findProject(':pf4j:pf4j-plugin:pf4j-plugin-02')?.name = 'pf4j-plugin-02'
-findProject(':pf4j:pf4j-plugin:pf4j-plugin-03')?.name = 'pf4j-plugin-03'
-
+//[SECRET]
+include 'secret'
+include 'secret:secret-core'
