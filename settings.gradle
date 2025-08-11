@@ -40,3 +40,6 @@ include 'secret'
 include 'secret:secret-core'
 include 'secret:sha3-256-secret'
 include 'secret:aes-256-secret'
+
+//[MEMORY_LEAK]
+include 'memory'
