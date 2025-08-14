@@ -1,0 +1,15 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /ch/openfeign
+spring:
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connectTimeout: 5000
+            readTimeout: 5000
+logging:
+  level:
+    com.ch.openfeign.client.OpenFeignClient: DEBUG
