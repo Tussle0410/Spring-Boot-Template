@@ -43,3 +43,7 @@ include 'secret:aes-256-secret'
 
 //[MEMORY_LEAK]
 include 'memory'
+
+//[OPEN_FEIGN]
+include 'open-feign'
+include 'open-feign:open-api-server'
