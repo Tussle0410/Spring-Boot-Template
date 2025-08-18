@@ -47,3 +47,6 @@ include 'memory'
 //[OPEN_FEIGN]
 include 'open-feign'
 include 'open-feign:open-api-server'
+
+//[KOTLIN]
+include 'kotlin'
