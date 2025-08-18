@@ -9,15 +9,9 @@ package com.ch.kotlin.context
  * var ageInt : Int = age  // ❌ 컴파일 오류!
  * ```
  */
-class Conversion {
-    private var age:Int
-    private var ageString: String
+class Conversion(private var age : Int, private var ageString : String) {
 
-    constructor(age : Int ){
-        this.age = age
-        this.ageString = age.toString()
-        var ageLong : Long = age.toLong()
-    }
+    constructor(age : Int ): this(age, age.toString())
 
     fun getAge():Int = age
     fun getAgeLong():Long = getAge().toLong()

@@ -7,15 +7,13 @@ package com.ch.kotlin.context
  *
  * ? : nullable
  */
-class Variable {
-    private var name: String
-    private var nullAbleVar: String?
+class Variable(
+    private var name : String,
+    private var nullAbleVar : String?
+) {
     private val nonEditName:String = "nonEditName"
 
-    constructor(name: String) {
-        this.name = name
-        this.nullAbleVar = null
-    }
+    constructor(name:String) : this(name, null)
 
     fun print() {
         println(getName())
